@@ -14,8 +14,7 @@ if os.getenv('RTT_CC'):
     CROSS_TOOL = os.getenv('RTT_CC')
 
 PLATFORM    = 'gcc'
-EXEC_PATH   = r'/opt/gcc-arm-none-eabi-5_4-2016q3/bin'
-
+EXEC_PATH   = "/usr/bin"
 if os.getenv('RTT_EXEC_PATH'):
     EXEC_PATH = os.getenv('RTT_EXEC_PATH')
 
