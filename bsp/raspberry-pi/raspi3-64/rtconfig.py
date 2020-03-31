@@ -14,14 +14,14 @@ if os.getenv('RTT_CC'):
     CROSS_TOOL = os.getenv('RTT_CC')
 
 PLATFORM    = 'gcc'
-EXEC_PATH   = r'/opt/gcc-arm-8.3-2019.03-x86_64-aarch64-elf/bin/'  
+EXEC_PATH   = '/usr/bin/' 
 
 BUILD = 'debug'
 
 if PLATFORM == 'gcc':
     # toolchains
     # PREFIX = 'arm-none-eabi-'
-    PREFIX = 'aarch64-elf-'
+    PREFIX = 'aarch64-linux-gnu-'
     CC      = PREFIX + 'gcc'
     CXX     = PREFIX + 'g++'
     AS      = PREFIX + 'gcc'
