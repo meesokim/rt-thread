@@ -40,7 +40,8 @@
 .equ RT_IRQ_STACK_PGSZ,  0x00000100
 .equ USR_Stack_Size,     0x00000100
 
-#define ISR_Stack_Size  (UND_Stack_Size + SVC_Stack_Size + ABT_Stack_Size + RT_FIQ_STACK_PGSZ + RT_IRQ_STACK_PGSZ)
+#define ISR_Stack_Size  (UND_Stack_Size + SVC_Stack_Size + ABT_Stack_Size + \
+                 RT_FIQ_STACK_PGSZ + RT_IRQ_STACK_PGSZ)
 
 .section .data.share.isr
 /* stack */

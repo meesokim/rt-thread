@@ -19,8 +19,8 @@ env = Environment(tools = ['mingw'],
 env.PrependENVPath('PATH', rtconfig.EXEC_PATH)
 print ("AS is:", env['AS'])
 static_obj, shared_obj = SCons.Tool.createObjBuilders(env)
-static_obj.add_action('.s', SCons.Defaults.ASAction)
-static_obj.add_emitter('.s', SCons.Defaults.StaticObjectEmitter)
+static_obj.add_action('.S', SCons.Defaults.ASAction)
+static_obj.add_emitter('.S', SCons.Defaults.StaticObjectEmitter)
 
 Export('RTT_ROOT')
 Export('rtconfig')

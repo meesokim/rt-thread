@@ -33,9 +33,9 @@ if PLATFORM == 'gcc':
     OBJDUMP = PREFIX + 'objdump'
     OBJCPY  = PREFIX + 'objcopy'
 
-    DEVICE = ' -mfpu=neon-vfpv4 -mfloat-abi=softfp -march=armv7-a -mtune=cortex-a7 -ftree-vectorize -ffast-math'
+    DEVICE = ' -mfloat-abi=softfp -march=armv6 -mtune=arm1176jz-s -ftree-vectorize -ffast-math'
     CFLAGS = DEVICE + ' -Wall'
-    AFLAGS = ' -c' + ' -march=armv7-a -x assembler-with-cpp -D__ASSEMBLY__'
+    AFLAGS = ' -c' + ' -mcpu=arm1176jzf-s'
     LFLAGS  = DEVICE + ' -nostartfiles -Wl,--gc-sections,-Map=rtthread.map,-cref,-u,system_vectors -T link.lds'
     CPATH   = ''
     LPATH   = ''
@@ -49,4 +49,4 @@ if PLATFORM == 'gcc':
     CXXFLAGS = CFLAGS
 
 DUMP_ACTION = OBJDUMP + ' -D -S $TARGET > rtt.asm\n'
-POST_ACTION = OBJCPY + ' -O binary $TARGET kernel7.img\n' + SIZE + ' $TARGET \n'
+POST_ACTION = OBJCPY + ' -O binary $TARGET kernel.img\n' + SIZE + ' $TARGET \n'

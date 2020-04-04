@@ -18,7 +18,6 @@ extern "C" {
 #ifdef HAVE_CCONFIG_H
 #include <cconfig.h>
 #endif
-
 #ifndef HAVE_SIGVAL
 /*  Signal Generation and Delivery, P1003.1b-1993, p. 63
     NOTE: P1003.1c/D10, p. 34 adds sigev_notify_function and
@@ -29,6 +28,7 @@ union sigval
     int    sival_int;    /* Integer signal value */
     void  *sival_ptr;    /* Pointer signal value */
 };
+#define HAVE_SIGNAL
 #endif
 
 #ifndef HAVE_SIGEVENT
@@ -41,6 +41,7 @@ struct sigevent
                                              /* Notification function */
     void         *sigev_notify_attributes;   /* Notification Attributes, really pthread_attr_t */
 };
+#define HAVE_SIGEVENT
 #endif
 
 #ifndef HAVE_SIGINFO
@@ -52,6 +53,7 @@ struct siginfo
     union sigval si_value;
 };
 typedef struct siginfo siginfo_t;
+#define HAVE_SIGINFO
 #endif
 
 #define SI_USER     0x01    /* Signal sent by kill(). */
@@ -68,7 +70,7 @@ typedef void (*_sig_func_ptr)(int);
 typedef unsigned long sigset_t;
 #endif
 
-//#include <signal.h>
+#include <signal.h>
 
 #if defined(__CC_ARM) || defined(__CLANG_ARM)
 
