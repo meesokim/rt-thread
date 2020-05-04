@@ -162,7 +162,7 @@ def GCCResult(rtconfig, str):
             result += '#define HAVE_SIGVAL 1\n'
 
         if version:
-            result += '#define GCC_VERSION_STR "%s"\n' % version
+            result += '#define GCC_VERSION "%s"\n' % version
 
         result += '#define STDC "%s"\n' % stdc
 
