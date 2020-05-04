@@ -33,7 +33,7 @@ void rt_low_level_init(void)
     *addr = 0x10000;
     //init cpu pll clk 408M
     addr = (unsigned int *)(0x01c20000 + 0x000);
-    *addr = 0x80001000;
+    *addr = 0x80001100; // freq=816MHz instead of 406Mhz (0x80001000)
     time = 0xffff;
     while ((!(*addr & (0x1 << 28))) && (time--));
     //change cpu clk source to pll
